@@ -38,17 +38,18 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  for (let i = 0; i < 5; i++)
-  {
-    if (candidateAnswers[i] === correctAnswer[i]) {
-      console.log(`Good job, correct answer is ${correctAnswer[i]} and your answer is ${candidateAnswers[i]}. So, you are correct.`);
+  let numCorrectAnswers = 0;
+  for (let i = 0; i < 5; i++) {
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+      console.log(`Correct answer: ${correctAnswers[i]} | Your answer: ${candidateAnswers[i]} | Congrats, you're correct.`);
+      numCorrectAnswers++;
     } else {
-      console.log(`Oh no, correct answer is ${correctAnswer[i]} and your answer is ${candidateAnswers[i]}. So, your answer is incorrect!`);
+      console.log(`Correct answer: ${correctAnswers[i]} | Your answer: ${candidateAnswers[i]} | Bad luck, you're incorrect!`);
     }
   }
 
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
+  grade = (numCorrectAnswers / questions.length) * 100;
 
   return grade;
 }
